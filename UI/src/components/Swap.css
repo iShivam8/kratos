@@ -1,0 +1,101 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Valid css below */
+.swap-container {
+  color: #ffffff;
+  background-color: #000000; /* Change to match your exact colors */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.connect-wallet-button {
+  background-color: #ffa500; /* Change to match your exact button color */
+  color: #000000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.swap-box {
+  background-color: #333333; /* Change to match your exact box color */
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  width: 300px; /* Adjust as per your layout */
+}
+
+.swap-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.slippage-container {
+  display: flex;
+  align-items: center;
+}
+
+.swap-input-container {
+  margin-bottom: 20px;
+}
+
+.swap-input {
+  margin-bottom: 10px;
+}
+
+.swap-button {
+  width: 100%;
+  background-color: #ffa500; /* Change to match your exact button color */
+  color: #000000;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.rate-info {
+  text-align: center;
+  margin-top: 20px;
+}
