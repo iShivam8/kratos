@@ -6,6 +6,7 @@ import Airdrop from "./Airdrop";
 import Pools from "./Airdrop";
 import MobileApp from "./MobileApp";
 import Navigation from "./Navigation";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const Swap = () => {
   const appRouter = createBrowserRouter([
@@ -28,7 +29,8 @@ const Swap = () => {
   ]);
 
   return (
-    <>
+    <Router>
+      <Navigation />
       <div className="swap-container">
         <div className="swap-header">
           <ConnectWallet />
@@ -65,7 +67,7 @@ const Swap = () => {
           <div className="rate-info">1 VELAR ≈ 0.0733670000 STX</div>
         </div>
       </div>
-    </>
+    </Router>
   );
 };
 

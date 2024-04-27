@@ -10,13 +10,16 @@ const Navigation = () => {
 
   return (
     <header className="nav-header">
-      <div className="nav-brand">🌀 YourLogo</div>
+      <div className="nav-brand">🌀 Kratos</div>
       <nav className="nav-links">
         <NavLink to="/swap" className={setActiveClass}>
           Swap
         </NavLink>
         <NavLink to="/pool" className={setActiveClass}>
           Pool
+        </NavLink>
+        <NavLink to="/airdrop" className={setActiveClass}>
+          Airdrop
         </NavLink>
         <NavLink to="/farm" className={setActiveClass}>
           Farm
