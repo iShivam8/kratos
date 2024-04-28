@@ -37,7 +37,10 @@ const ConnectWallet = () => {
   }
 
   return (
-    <button className="Connect" onClick={authenticate}>
+    <button
+      className="w-full bg-yellow-500 text-gray-800 py-3 rounded mb-3 hover:bg-yellow-600 transition-colors"
+      onClick={authenticate}
+    >
       Connect Wallet
     </button>
   );

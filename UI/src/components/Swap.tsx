@@ -7,6 +7,8 @@ import Pools from "./Airdrop";
 import MobileApp from "./MobileApp";
 import Navigation from "./Navigation";
 import { BrowserRouter as Router } from "react-router-dom";
+import { useState } from "react";
+import background from "../img/kratosbgm.jpeg";
 
 const Swap = () => {
   const appRouter = createBrowserRouter([
@@ -28,43 +30,75 @@ const Swap = () => {
     },
   ]);
 
+  const [fromAmount, setFromAmount] = useState("");
+  const [toAmount, setToAmount] = useState("");
+
   return (
     <Router>
       <Navigation />
-      <div className="swap-container">
-        <div className="swap-header">
-          <ConnectWallet />
-        </div>
-        <div className="swap-box">
-          <div className="swap-box-header">
-            <span>Swap</span>
-            <div className="slippage-container">
-              Slippage: <span className="slippage-percentage">4%</span>{" "}
-              <button>Edit</button>
+      <div
+        className="min-h-screen bg-black flex items-center justify-center px-5 py-5"
+        style={{
+          backgroundImage: `url(${background})`,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+      >
+        <div className="max-w-xs w-full bg-gray-700 rounded-xl p-5">
+          <div className="text-white mb-5">
+            <div className="flex justify-between items-center">
+              <h2 className="text-xl font-bold">Swap</h2>
+              <div className="text-xs">
+                <span>Slippage: 4%</span>
+                <button className="ml-2 bg-yellow-500 text-gray-800 text-xs py-1 px-2 rounded">
+                  Edit
+                </button>
+              </div>
             </div>
           </div>
-          <div className="swap-input-container">
-            <div className="swap-input">
-              <label htmlFor="from-token">From</label>
-              <select id="from-token">
-                <option value="STX">STX</option>
-                {/* Add other tokens as needed */}
-              </select>
-              <input type="number" placeholder="0.00" />
-              <span>Balance: 0</span>
-            </div>
-            <div className="swap-input">
-              <label htmlFor="to-token">To</label>
-              <select id="to-token">
-                <option value="VELAR">VELAR</option>
-                {/* Add other tokens as needed */}
-              </select>
-              <input type="number" placeholder="0.00" />
-              <span>Balance: 0</span>
+          <div className="mb-5">
+            <label htmlFor="from" className="block text-sm text-gray-300 mb-2">
+              From
+            </label>
+            <div className="flex items-center border border-gray-600 rounded">
+              <div className="bg-blue-600 px-3 py-2 rounded-l text-white text-sm">
+                BTC
+              </div>
+              <input
+                type="text"
+                id="from"
+                value={fromAmount}
+                onChange={(e) => setFromAmount(e.target.value)}
+                placeholder="0.00"
+                className="text-white bg-transparent flex-1 py-2 px-3 focus:outline-none"
+              />
             </div>
           </div>
-          <button className="swap-button">Swap</button>
-          <div className="rate-info">1 VELAR ≈ 0.0733670000 STX</div>
+          <div className="mb-5">
+            <label htmlFor="to" className="block text-sm text-gray-300 mb-2">
+              To
+            </label>
+            <div className="flex items-center border border-gray-600 rounded">
+              <div className="bg-yellow-500 px-3 py-2 rounded-l text-gray-800 text-sm">
+                SBTC
+              </div>
+              <input
+                type="text"
+                id="to"
+                value={toAmount}
+                onChange={(e) => setToAmount(e.target.value)}
+                placeholder="0.00"
+                className="text-white bg-transparent flex-1 py-2 px-3 focus:outline-none"
+              />
+            </div>
+          </div>
+          <button className="w-full bg-yellow-500 text-gray-800 py-3 rounded mb-3 hover:bg-yellow-600 transition-colors">
+            Connect Wallet
+          </button>
+          <div className="text-gray-400 text-xs text-center">
+            1 VELAR ≈ 0.0734580000 STX
+          </div>
         </div>
       </div>
     </Router>
