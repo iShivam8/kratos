@@ -1,8 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Navigation from "./Navigation";
 import localImage from "../img/pools.png"; // Make sure to provide the correct path
 
 function Pools() {
+  let navigate = useNavigate();
+  const routeChange = (id: any) => {
+    let path = `/${id}`;
+    navigate(path);
+  };
   return (
     <>
       <Navigation />
@@ -61,7 +67,10 @@ function Pools() {
                       </tr>
                     </thead>
                     <tbody className="bg-gray-800">
-                      <tr className="bg-black bg-opacity-20 hover:bg-gray-700 hover:text-white">
+                      <tr
+                        onClick={() => routeChange(1)}
+                        className="bg-black bg-opacity-20 hover:bg-gray-700 hover:text-white cursor-pointer"
+                      >
                         <td className="px-6 py-4 whitespace-nowrap">1</td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           BTC -- sBTC
@@ -77,7 +86,10 @@ function Pools() {
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">--</td>
                       </tr>
-                      <tr className="bg-black bg-opacity-20 hover:bg-gray-700 hover:text-white">
+                      <tr
+                        onClick={() => routeChange(2)}
+                        className="bg-black bg-opacity-20 hover:bg-gray-700 hover:text-white cursor-pointer"
+                      >
                         <td className="px-6 py-4 whitespace-nowrap">2</td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           STX -- sBTC
