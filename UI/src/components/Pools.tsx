@@ -64,38 +64,6 @@ function Pools() {
                       <tr className="bg-black bg-opacity-20 hover:bg-gray-700 hover:text-white">
                         <td className="px-6 py-4 whitespace-nowrap">1</td>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          KLPT -- sBTC
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          $800.906K
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          $21.543K
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          $48.636K
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">--</td>
-                      </tr>
-                      <tr className="bg-black bg-opacity-20 hover:bg-gray-700 hover:text-white">
-                        <td className="px-6 py-4 whitespace-nowrap">2</td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          KLPT -- stSTX
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          $254.906K
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          $31.543K
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          $42.636K
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">--</td>
-                      </tr>
-                      <tr className="bg-black bg-opacity-20 hover:bg-gray-700 hover:text-white">
-                        <td className="px-6 py-4 whitespace-nowrap">3</td>
-                        <td className="px-6 py-4 whitespace-nowrap">
                           BTC -- sBTC
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
@@ -110,7 +78,7 @@ function Pools() {
                         <td className="px-6 py-4 whitespace-nowrap">--</td>
                       </tr>
                       <tr className="bg-black bg-opacity-20 hover:bg-gray-700 hover:text-white">
-                        <td className="px-6 py-4 whitespace-nowrap">4</td>
+                        <td className="px-6 py-4 whitespace-nowrap">2</td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           STX -- sBTC
                         </td>
