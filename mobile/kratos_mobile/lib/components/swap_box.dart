@@ -80,7 +80,7 @@ class SwapBox extends HookConsumerWidget {
               child: const Text(
                 'Swap',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 20,
                   fontWeight: FontWeight.w900,
                 ),

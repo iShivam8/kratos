@@ -4,6 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:kratos_mobile/components/swap_box.dart';
 import 'package:kratos_mobile/constants.dart';
+import 'package:kratos_mobile/pages/PoolPage.dart';
+import 'package:kratos_mobile/pages/swap_page.dart';
 import 'package:kratos_mobile/providers/index_provider.dart';
 
 void main() {
@@ -113,26 +115,8 @@ class MyHomePage extends HookConsumerWidget {
       ),
       backgroundColor: Colors.transparent,
       body: <Widget>[
-        Container(
-          height: double.maxFinite,
-          width: double.maxFinite,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Colors.black,
-                orngCol.withOpacity(0.01),
-              ],
-            ),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SwapBox(),
-            ],
-          ),
-        ),
+        const SwapPage(),
+        const PoolPage(),
         Container(
           height: 100,
           width: 100,

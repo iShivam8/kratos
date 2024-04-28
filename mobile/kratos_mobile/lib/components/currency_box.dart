@@ -9,8 +9,14 @@ import 'package:kratos_mobile/models/currency.dart';
 class CurrencyBox extends HookConsumerWidget {
   final String title;
   final Currency currency;
+  final bool allowChange;
 
-  const CurrencyBox({super.key, required this.title, required this.currency});
+  const CurrencyBox({
+    super.key,
+    required this.title,
+    required this.currency,
+    this.allowChange = true,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -29,16 +35,18 @@ class CurrencyBox extends HookConsumerWidget {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8),
             child: GestureDetector(
-              onTap: () {
-                showModalBottomSheet(
-                  context: context,
-                  isScrollControlled: true,
-                  backgroundColor: Colors.black,
-                  builder: (BuildContext context) {
-                    return CurrencyModal(title: title);
-                  },
-                );
-              },
+              onTap: allowChange
+                  ? () {
+                      showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        backgroundColor: Colors.black,
+                        builder: (BuildContext context) {
+                          return CurrencyModal(title: title);
+                        },
+                      );
+                    }
+                  : () {},
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -73,8 +81,10 @@ class CurrencyBox extends HookConsumerWidget {
                         ),
                       ),
                       const SizedBox(width: 8),
-                      const Icon(Icons.keyboard_arrow_down_rounded,
-                          color: Colors.white)
+                      allowChange
+                          ? const Icon(Icons.keyboard_arrow_down_rounded,
+                              color: Colors.white)
+                          : Container()
                     ],
                   )
                 ],
