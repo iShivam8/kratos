@@ -12,13 +12,13 @@ function Pools() {
   return (
     <>
       <Navigation />
-      <div className="flex flex-col items-center justify-center w-screen min-h-screen bg-gray-900 py-10 overflow-auto">
+      <div className="flex flex-col items-center justify-center w-screen h-screen bg-gray-900 py-10 overflow-auto">
         <img
           src={localImage}
           alt="Description of local image"
           width="1200"
           height="1000"
-          className="rounded-lg"
+          className="rounded-lg mt-20 mx-2 relative"
         />
         <div className="flex flex-col items-center w-screen h-screen bg-gray-900 pt-20 overflow-auto">
           <div className="flex flex-col mt-6 w-full lg:w-4/5 xl:w-3/4">

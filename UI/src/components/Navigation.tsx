@@ -9,7 +9,7 @@ const Navigation = () => {
     isActive ? "nav-item active" : "nav-item";
 
   return (
-    <header className="nav-header">
+    <header className="nav-header absolute w-screen z-50">
       <div className="nav-brand flex flex-row items-center ml-4">
         <img src={"klpt_logo.png"} alt="logo" className="rounded-full w-8" />
         <span className="font-vinque font-bold text-3xl text-red-600 ml-2 pb-1">
