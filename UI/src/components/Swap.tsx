@@ -1,40 +1,36 @@
-import { createBrowserRouter } from "react-router-dom";
-import { RouterProvider } from "react-router-dom";
-import ConnectWallet from "./ConnectWallet";
 import "./Swap.css";
 import Airdrop from "./Airdrop";
 import Pools from "./Airdrop";
 import MobileApp from "./MobileApp";
 import Navigation from "./Navigation";
-import { BrowserRouter as Router } from "react-router-dom";
 import { useState } from "react";
 import background from "../img/kratosbgm.jpeg";
 
 const Swap = () => {
-  const appRouter = createBrowserRouter([
-    {
-      path: "/",
-      element: <Swap />,
-    },
-    {
-      path: "/airdrop",
-      element: <Airdrop />,
-    },
-    {
-      path: "/pools",
-      element: <Pools />,
-    },
-    {
-      path: "/app",
-      element: <MobileApp />,
-    },
-  ]);
+  // const appRouter = createBrowserRouter([
+  //   {
+  //     path: "/",
+  //     element: <Swap />,
+  //   },
+  //   {
+  //     path: "/airdrop",
+  //     element: <Airdrop />,
+  //   },
+  //   {
+  //     path: "/pools",
+  //     element: <Pools />,
+  //   },
+  //   {
+  //     path: "/app",
+  //     element: <MobileApp />,
+  //   },
+  // ]);
 
   const [fromAmount, setFromAmount] = useState("");
   const [toAmount, setToAmount] = useState("");
 
   return (
-    <Router>
+    <>
       <Navigation />
       <div
         className="min-h-screen bg-black flex items-center justify-center px-5 py-5"
@@ -101,7 +97,7 @@ const Swap = () => {
           </div>
         </div>
       </div>
-    </Router>
+    </>
   );
 };
 

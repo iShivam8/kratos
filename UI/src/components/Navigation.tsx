@@ -15,7 +15,7 @@ const Navigation = () => {
         <NavLink to="/swap" className={setActiveClass}>
           Swap
         </NavLink>
-        <NavLink to="/pool" className={setActiveClass}>
+        <NavLink to="/pools" className={setActiveClass}>
           Pool
         </NavLink>
         <NavLink to="/airdrop" className={setActiveClass}>
