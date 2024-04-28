@@ -3,7 +3,7 @@
 (impl-trait .kratos-governance-token-trait.governance-token-trait)
 
 ;; Define the FT, with no maximum supply
-(define-fungible-token kratos-liquidity-provider-token)
+(define-fungible-token kratos-governance-token)
 
 ;; Define errors
 (define-constant ERR_OWNER_ONLY (err u100))
@@ -12,20 +12,20 @@
 
 ;; Define constants for contract
 (define-constant CONTRACT_OWNER tx-sender)
-(define-constant TOKEN_URI u"KLPT is the Kratos Liquidity Provider Token for the DeFi dApp") ;; utf-8 string with token metadata host
-(define-constant TOKEN_NAME "Kratos Liquidity Provider Token")
-(define-constant TOKEN_SYMBOL "KLPT")
+(define-constant TOKEN_URI u"gKRT is world's First Governance token on a Liquidity Provider Aggregator DeFi dApp on Bitcoin") ;; utf-8 string with token metadata host
+(define-constant TOKEN_NAME "Kratos Governance Token")
+(define-constant TOKEN_SYMBOL "gKRT")
 (define-constant TOKEN_DECIMALS u6) ;; 6 units displayed past decimal, e.g. 1.000_000 = 1 token
 
 
 ;; SIP-010 function: Get the token balance of a specified principal
-(define-read-only (get-balance (who principal))
-  (ok (ft-get-balance kratos-liquidity-provider-token who))
+(define-read-only (get-balance (account principal))
+  (ok (ft-get-balance kratos-governance-token account))
 )
 
 ;; SIP-010 function: Returns the total supply of fungible token
 (define-read-only (get-total-supply)
-  (ok (ft-get-supply kratos-liquidity-provider-token))
+  (ok (ft-get-supply kratos-governance-token))
 )
 
 ;; SIP-010 function: Returns the human-readable token name
@@ -53,7 +53,7 @@
 (define-public (mint (amount uint) (recipient principal))
   (begin
     (asserts! (is-eq tx-sender CONTRACT_OWNER) ERR_OWNER_ONLY)
-    (ft-mint? kratos-liquidity-provider-token amount recipient)
+    (ft-mint? kratos-governance-token amount recipient)
   )
 )
 
@@ -67,7 +67,7 @@
 )
   (begin
     (asserts! (is-eq tx-sender sender) ERR_NOT_TOKEN_OWNER)
-    (try! (ft-transfer? kratos-liquidity-provider-token amount sender recipient))
+    (try! (ft-transfer? kratos-governance-token amount sender recipient))
     (match memo to-print (print to-print) 0x)
     (ok true)
   )
@@ -81,7 +81,7 @@
 (define-public (mint-for-dao (amount uint) (recipient principal))
   (begin
     ;;(asserts! (is-eq contract-caller .kratos-governance) (err ERR_NOT_TOKEN_OWNER))
-    (ft-mint? kratos-liquidity-provider-token amount recipient)
+    (ft-mint? kratos-governance-token amount recipient)
   )
 )
 
@@ -89,6 +89,6 @@
 (define-public (burn-for-dao (amount uint) (sender principal))
   (begin
     ;;(asserts! (is-eq contract-caller .kratos-governance) (err ERR_NOT_TOKEN_OWNER))
-    (ft-burn? kratos-liquidity-provider-token amount sender)
+    (ft-burn? kratos-governance-token amount sender)
   )
 )
