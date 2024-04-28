@@ -16,6 +16,20 @@ class SwapBox extends HookConsumerWidget {
 
     final isPressed = useState(false);
 
+    final fromController = useTextEditingController();
+    final toController = useTextEditingController();
+
+    fromController.addListener(() {
+      double amt = double.tryParse(fromController.text) ?? 0;
+
+      double fullAmt = amt * currencyState.fromCurrency.price;
+
+      print('fullAmt: $fullAmt');
+
+      toController.text =
+          (fullAmt / currencyState.toCurrency.price).toStringAsFixed(4);
+    });
+
     return Center(
       child: Container(
         // height: 100,
@@ -59,10 +73,12 @@ class SwapBox extends HookConsumerWidget {
                 CurrencyBox(
                   title: "From",
                   currency: currencyState.fromCurrency,
+                  controller: fromController,
                 ),
                 CurrencyBox(
                   title: "To",
                   currency: currencyState.toCurrency,
+                  controller: toController,
                 ),
               ],
             ),

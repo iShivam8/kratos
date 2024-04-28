@@ -58,20 +58,24 @@ const currencyAll = [
     name: "Stacks",
     symbol: "STX",
     imageUrl: 'assets/stx_logo.png',
+    price: 2.55,
   ),
   Currency(
     name: "Bitcoin",
     symbol: "BTC",
     imageUrl: 'assets/bitcoin_logo.png',
+    price: 63595.90,
   ),
   Currency(
     name: "Kratos LPT",
     symbol: "KLPT",
     imageUrl: 'assets/klpt_logo.png',
+    price: 1,
   ),
   Currency(
     name: "SBTC",
     symbol: "SBTC",
     imageUrl: 'assets/sbtc_logo.jpg',
+    price: 63595.90,
   )
 ];

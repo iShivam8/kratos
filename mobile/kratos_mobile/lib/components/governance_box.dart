@@ -76,6 +76,7 @@ class GovernanceBox extends HookConsumerWidget {
                     name: 'Governance Kratos',
                     symbol: 'GKRT',
                     imageUrl: 'assets/klpt_logo.png',
+                    price: 1.0,
                   ),
                   allowChange: false,
                   controller: toController,
