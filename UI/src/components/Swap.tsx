@@ -6,6 +6,7 @@ import Navigation from "./Navigation";
 import { useState } from "react";
 import background from "../img/kratosbgm.jpeg";
 import { TokenModal } from "./TokenModal";
+import ConnectWallet from "./ConnectWallet";
 
 const Swap = () => {
   const [fromAmount, setFromAmount] = useState("");
@@ -28,7 +29,7 @@ const Swap = () => {
           backgroundSize: "cover",
         }}
       >
-        <div className="max-w-xs w-full bg-gray-700 rounded-xl p-5">
+        <div className="max-w-md w-full bg-gray-700 rounded-xl p-5">
           <div className="text-white mb-5">
             <div className="flex justify-between items-center">
               <h2 className="text-xl font-bold">Swap</h2>
@@ -112,9 +113,8 @@ const Swap = () => {
               tokenModalHandler={setToTokenModal}
             />
           )}
-          <button className="w-full bg-yellow-500 text-gray-800 py-3 rounded mb-3 hover:bg-yellow-600 transition-colors">
-            Connect Wallet
-          </button>
+
+          <ConnectWallet />
           <div className="text-gray-400 text-sm font-bold text-end">
             1 KLPT ≈ 0.0734580000 STX
           </div>
