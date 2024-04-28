@@ -6,6 +6,7 @@ import Navigation from "./Navigation";
 import { useState } from "react";
 import background from "../img/kratosbgm.jpeg";
 import ConnectWallet from "./ConnectWallet";
+import { ExecuteContract } from "./ExecuteContractService";
 
 const Pool1 = () => {
   const [fromAmount, setFromAmount] = useState("");
@@ -87,10 +88,9 @@ const Pool1 = () => {
               className="w-full bg-green-500 text-black font-bold py-3 rounded mb-3 hover:bg-yellow-600 transition-colors"
               onClick={() => setConfirmClicked(true)}
             >
-              Confirm
+              <span onClick={ExecuteContract}>Confirm (Call my contract)</span>
             </button>
           )}
-
           <ConnectWallet />
           <div className="text-gray-400 text-xs text-center">
             1 VELAR ≈ 0.0734580000 STX
