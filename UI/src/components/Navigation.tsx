@@ -21,15 +21,17 @@ const Navigation = () => {
           <span className="p-3 hover:bg-slate-800 hover:rounded-lg">Swap</span>
         </NavLink>
         <NavLink to="/pools" className={setActiveClass}>
-          <span className="p-3 hover:bg-slate-800 hover:rounded-lg">Pool</span>
+          <span className="p-3 hover:bg-slate-800 hover:rounded-lg">Pools</span>
+        </NavLink>
+        <NavLink to="/governance" className={setActiveClass}>
+          <span className="p-3 hover:bg-slate-800 hover:rounded-lg">
+            Governance
+          </span>
         </NavLink>
         <NavLink to="/airdrop" className={setActiveClass}>
           <span className="p-3 hover:bg-slate-800 hover:rounded-lg">
             Airdrop
           </span>
-        </NavLink>
-        <NavLink to="/farm" className={setActiveClass}>
-          <span className="p-3 hover:bg-slate-800 hover:rounded-lg">Farm</span>
         </NavLink>
       </nav>
       {/* <button className="connect-wallet-btn">Connect Wallet</button> */}

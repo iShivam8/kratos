@@ -1,5 +1,5 @@
 ;; This contract implements the SIP-010 community-standard Fungible Token trait.
-;;(impl-trait 'SP3FBR2AGK5H9QBDH3EEN6DF8EK8JY7RX8QJ5SVTE.sip-010-trait-ft-standard.sip-010-trait)
+(impl-trait .sip-010-trait-ft-standard.sip-010-trait)
 (impl-trait .kratos-governance-token-trait.governance-token-trait)
 
 ;; Define the FT, with no maximum supply
@@ -56,6 +56,19 @@
     (ft-mint? kratos-governance-token amount recipient)
   )
 )
+
+;; Calculate the governing power ratio as per the gKRT
+;;(define-read-only (governing-power-ratio (account principal))
+;;  (let (
+;;       (total-supply (get-total-supply))
+;;       (user-balance (get-balance account))
+;;     )
+;;     (if (> total-supply 0)
+;;       (err "gKRT Total Supply is Zero")
+;;       (ok (/ user-balance total-supply))
+;;     )
+;;   )
+;;)
 
 ;; SIP-010 function: Transfers tokens to a recipient
 ;; Sender must be the same as the caller to prevent principals from transferring tokens they do not own.

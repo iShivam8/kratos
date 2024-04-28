@@ -1,7 +1,7 @@
 import "./Swap.css";
 import Airdrop from "./Airdrop";
 import Pools from "./Airdrop";
-import MobileApp from "./MobileApp";
+import MobileApp from "./Airdrop";
 import Navigation from "./Navigation";
 import { useEffect, useState } from "react";
 import background from "../img/kratosbgm.jpeg";
@@ -101,7 +101,8 @@ const Pool1 = () => {
               className="w-full bg-gradient-to-br from-red-600 to-red-800 text-teal-50 font-bold py-3 rounded mb-3 hover:bg-red-400 transition-colors"
               onClick={() => setConfirmClicked(true)}
             >
-              <span onClick={ExecuteContract}>Confirm (Call my contract)</span>
+              Confirm
+              {/* <span onClick={ExecuteContract}>Confirm</span> */}
             </button>
           )}
           <ConnectWallet />
