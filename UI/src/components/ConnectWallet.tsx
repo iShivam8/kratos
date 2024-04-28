@@ -27,17 +27,32 @@ const ConnectWallet = () => {
   if (userSession.isUserSignedIn()) {
     return (
       <div>
-        <button className="Connect" onClick={disconnect}>
+        <button
+          className="w-full bg-red-500 text-black font-bold py-3 rounded mb-5 hover:bg-yellow-600 transition-colors"
+          onClick={disconnect}
+        >
           Disconnect Wallet
         </button>
-        <p>mainnet: {userSession.loadUserData().profile.stxAddress.mainnet}</p>
-        <p>testnet: {userSession.loadUserData().profile.stxAddress.testnet}</p>
+        <div className="max-w-md mx-auto text-white mb-3">
+          {" "}
+          {/* Set the max-width and auto-margin for centering */}
+          <p className="break-words text-sm">
+            MainNet: {userSession.loadUserData().profile.stxAddress.mainnet}
+          </p>
+          <br />
+          <p className="break-words text-sm">
+            TestNet: {userSession.loadUserData().profile.stxAddress.testnet}
+          </p>
+        </div>
       </div>
     );
   }
 
   return (
-    <button className="Connect" onClick={authenticate}>
+    <button
+      className="w-full bg-red-500 text-black font-bold py-3 rounded mb-3 hover:bg-yellow-600 transition-colors"
+      onClick={authenticate}
+    >
       Connect Wallet
     </button>
   );
