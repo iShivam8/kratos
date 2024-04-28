@@ -4,7 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:kratos_mobile/components/swap_box.dart';
 import 'package:kratos_mobile/constants.dart';
-import 'package:kratos_mobile/pages/PoolPage.dart';
+import 'package:kratos_mobile/pages/governance_page.dart';
+import 'package:kratos_mobile/pages/pool_page.dart';
 import 'package:kratos_mobile/pages/swap_page.dart';
 import 'package:kratos_mobile/providers/index_provider.dart';
 
@@ -111,22 +112,40 @@ class MyHomePage extends HookConsumerWidget {
             ),
             label: '',
           ),
+          NavigationDestination(
+            selectedIcon: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                const SizedBox(height: 18),
+                const Icon(Icons.people_rounded, color: Colors.black),
+                const SizedBox(height: 8),
+                Text(
+                  "Governance",
+                  style: TextStyle(color: orngCol),
+                ),
+              ],
+            ),
+            icon: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                const SizedBox(height: 18),
+                Icon(Icons.people_rounded, color: orngCol.withOpacity(0.3)),
+                const SizedBox(height: 8),
+                Text(
+                  "Governance",
+                  style: TextStyle(color: orngCol.withOpacity(0.0)),
+                ),
+              ],
+            ),
+            label: '',
+          ),
         ],
       ),
       backgroundColor: Colors.transparent,
       body: <Widget>[
         const SwapPage(),
         const PoolPage(),
-        Container(
-          height: 100,
-          width: 100,
-          color: Colors.blueAccent,
-        ),
-        Container(
-          height: 100,
-          width: 100,
-          color: Colors.yellow,
-        ),
+        const GovernancePage(),
       ][currentPageIndex],
     );
   }

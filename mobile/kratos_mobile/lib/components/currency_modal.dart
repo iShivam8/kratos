@@ -72,7 +72,19 @@ class CurrencyModal extends HookConsumerWidget {
                               width: 32,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(24),
-                                child: Image.asset(currency.imageUrl),
+                                child: Image.asset(
+                                  currency.imageUrl,
+                                  color: currency.symbol
+                                          .toLowerCase()
+                                          .contains("klpt")
+                                      ? Colors.blue
+                                      : null,
+                                  colorBlendMode: currency.symbol
+                                          .toLowerCase()
+                                          .contains("klpt")
+                                      ? BlendMode.color
+                                      : null,
+                                ),
                               ),
                             ),
                             const SizedBox(

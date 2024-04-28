@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -10,12 +12,14 @@ class CurrencyBox extends HookConsumerWidget {
   final String title;
   final Currency currency;
   final bool allowChange;
+  final TextEditingController? controller;
 
   const CurrencyBox({
     super.key,
     required this.title,
     required this.currency,
     this.allowChange = true,
+    this.controller,
   });
 
   @override
@@ -68,7 +72,17 @@ class CurrencyBox extends HookConsumerWidget {
                         width: 32,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(58),
-                          child: Image.asset(currency.imageUrl),
+                          child: Image.asset(
+                            currency.imageUrl,
+                            color:
+                                currency.symbol.toLowerCase().contains("klpt")
+                                    ? Colors.blue
+                                    : null,
+                            colorBlendMode:
+                                currency.symbol.toLowerCase().contains("klpt")
+                                    ? BlendMode.color
+                                    : null,
+                          ),
                         ),
                       ),
                       const SizedBox(width: 8),
@@ -92,9 +106,10 @@ class CurrencyBox extends HookConsumerWidget {
             ),
           ),
           const Divider(color: Colors.white10),
-          const Padding(
+          Padding(
             padding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 8),
             child: TextField(
+              controller: controller,
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.zero,
                 border: InputBorder.none,

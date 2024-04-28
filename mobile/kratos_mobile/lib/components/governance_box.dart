@@ -1,18 +1,25 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:kratos_mobile/components/currency_box.dart';
 import 'package:kratos_mobile/constants.dart';
+import 'package:kratos_mobile/models/currency.dart';
 import 'package:kratos_mobile/providers/swap_provider.dart';
 
-class SwapBox extends HookConsumerWidget {
-  const SwapBox({super.key});
+class GovernanceBox extends HookConsumerWidget {
+  const GovernanceBox({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final currencyState = ref.watch(swapStateNotifierProvider);
+    final fromController = useTextEditingController();
+    final toController = useTextEditingController();
+
+    fromController.addListener(() {
+      toController.text = fromController.text;
+    });
 
     final isPressed = useState(false);
 
@@ -27,28 +34,29 @@ class SwapBox extends HookConsumerWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Padding(
-              padding: EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
-                    'Swap',
+                    'Governance Tokens',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 21,
                         fontWeight: FontWeight.bold),
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(vertical: 2, horizontal: 12),
-                    child: Text(
-                      'Slippage: 4%',
-                      style: TextStyle(color: Colors.grey),
-                    ),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 2, horizontal: 12),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(56),
                       color: orngCol.withOpacity(0.1),
+                    ),
+                    child: Text(
+                      'Slippage: 4%',
+                      style: TextStyle(color: Colors.grey),
                     ),
                   )
                 ],
@@ -58,11 +66,19 @@ class SwapBox extends HookConsumerWidget {
               children: [
                 CurrencyBox(
                   title: "From",
-                  currency: currencyState.fromCurrency,
+                  currency: currencyAll[2],
+                  allowChange: false,
+                  controller: fromController,
                 ),
                 CurrencyBox(
                   title: "To",
-                  currency: currencyState.toCurrency,
+                  currency: Currency(
+                    name: 'Governance Kratos',
+                    symbol: 'GKRT',
+                    imageUrl: 'assets/klpt_logo.png',
+                  ),
+                  allowChange: false,
+                  controller: toController,
                 ),
               ],
             ),
@@ -83,7 +99,7 @@ class SwapBox extends HookConsumerWidget {
                 ),
                 alignment: Alignment.center,
                 child: Text(
-                  isPressed.value ? 'Swapped!' : 'Swap',
+                  isPressed.value ? 'Converted!' : 'Convert',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
