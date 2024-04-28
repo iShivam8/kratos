@@ -21,7 +21,7 @@ const Pool1 = () => {
   }, [isConfirmClicked]);
 
   useEffect(() => {
-    setToAmount(fromAmount);
+    setToAmount("" + 25115 * parseFloat(fromAmount));
   }, [fromAmount]);
 
   return (
@@ -62,7 +62,9 @@ const Pool1 = () => {
                 type="text"
                 id="from"
                 value={fromAmount}
-                onChange={(e) => setFromAmount(e.target.value)}
+                onChange={(e) => {
+                  if (e.target.value != "") setFromAmount(e.target.value);
+                }}
                 placeholder="0.00"
                 className="text-white bg-transparent flex-1 py-2 px-3 focus:outline-none font-bold"
               />

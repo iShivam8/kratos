@@ -21,6 +21,10 @@ const Governance = () => {
     }, 10000);
   }, [isConfirmClicked]);
 
+  useEffect(() => {
+    setToAmount(fromAmount);
+  }, [fromAmount]);
+
   return (
     <>
       <Navigation />
@@ -80,7 +84,6 @@ const Governance = () => {
                 type="text"
                 id="to"
                 value={toAmount}
-                onChange={(e) => setToAmount(e.target.value)}
                 placeholder="0.00"
                 className="text-white bg-transparent flex-1 py-2 px-3 focus:outline-none font-bold"
               />

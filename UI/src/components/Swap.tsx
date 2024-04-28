@@ -6,8 +6,8 @@ import { TokenModal } from "./TokenModal";
 import ConnectWallet from "./ConnectWallet";
 
 const Swap = () => {
-  const [fromAmount, setFromAmount] = useState("");
-  const [toAmount, setToAmount] = useState("");
+  const [fromAmount, setFromAmount] = useState("0");
+  const [toAmount, setToAmount] = useState("0.00");
   const [showTokenModal, setShowTokenModal] = useState(false);
   const [fromToken, setFromToken] = useState("KLPT");
   const [toToken, setToToken] = useState("sBTC");
@@ -15,7 +15,17 @@ const Swap = () => {
   const [toTokenModal, setToTokenModal] = useState(false);
 
   useEffect(() => {
-    setToAmount(fromAmount);
+    if (fromToken === "KLPT") {
+      if (toToken === "BTC" || toToken === "sBTC") {
+        setToAmount("" + 0.000016 * parseFloat(fromAmount));
+      } else if (toToken === "STX") {
+        setToAmount("" + 0.392 * parseFloat(fromAmount));
+      }
+    } else if (fromToken === "STX" && toToken === "sBTC") {
+      setToAmount("" + 25115 * parseFloat(fromAmount));
+    } else {
+      setToAmount(fromAmount);
+    }
   }, [fromAmount]);
 
   return (
@@ -64,7 +74,9 @@ const Swap = () => {
                 type="text"
                 id="from"
                 value={fromAmount}
-                onChange={(e) => setFromAmount(e.target.value)}
+                onChange={(e) => {
+                  if (e.target.value != "") setFromAmount(e.target.value);
+                }}
                 placeholder="0.00"
                 className="text-white bg-transparent flex-1 py-2 px-3 focus:outline-none font-bold"
               />
