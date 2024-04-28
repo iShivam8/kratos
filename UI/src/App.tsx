@@ -5,6 +5,7 @@ import Pools from "./components/Pools";
 import Pool1 from "./components/Pool-BTC-SBTC";
 import Pool2 from "./components/Pool-STX-SBTC";
 import Governance from "./components/Governance";
+import Airdrop from "./components/Airdrop";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           <Route path="1" element={<Pool1 />} />
           <Route path="2" element={<Pool2 />} />
           <Route path="governance" element={<Governance />} />
-          <Route path="app" element={<Pools />} />
+          <Route path="airdrop" element={<Airdrop />} />
         </Route>
       </Routes>
     </BrowserRouter>

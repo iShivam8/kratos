@@ -1,7 +1,7 @@
 import "./Swap.css";
 import Airdrop from "./Airdrop";
 import Pools from "./Airdrop";
-import MobileApp from "./MobileApp";
+import MobileApp from "./Airdrop";
 import Navigation from "./Navigation";
 import { useEffect, useState } from "react";
 import background from "../img/kratosbgm.jpeg";

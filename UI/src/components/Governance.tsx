@@ -1,7 +1,7 @@
 import "./Swap.css";
 import Airdrop from "./Airdrop";
 import Pools from "./Airdrop";
-import MobileApp from "./MobileApp";
+import MobileApp from "./Airdrop";
 import Navigation from "./Navigation";
 import { useEffect, useState } from "react";
 import background from "../img/kratosbgm.jpeg";
@@ -36,7 +36,7 @@ const Governance = () => {
         <div className="max-w-md w-full bg-gray-700 rounded-xl p-5">
           <div className="text-white mb-5">
             <div className="flex justify-between items-center">
-              <h2 className="text-xl font-bold">Add Liquidity</h2>
+              <h2 className="text-xl font-bold">Buy gKRT</h2>
               <div className="text-xs">
                 <span className="font-semibold text-gray-400">
                   Slippage: 4%
