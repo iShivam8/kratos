@@ -1,32 +1,38 @@
 // Navigation.tsx
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./Navigation.css"; // Ensure you have a corresponding CSS file
+import logo from "klpt_logo.png";
+import "./Navigation.css";
 
 const Navigation = () => {
-  // This function is used to set the class name based on the isActive boolean
   const setActiveClass = ({ isActive }: { isActive: boolean }) =>
     isActive ? "nav-item active" : "nav-item";
 
   return (
     <header className="nav-header">
-      <div className="nav-brand">🌀 Kratos</div>
-      <nav className="nav-links">
+      <div className="nav-brand flex flex-row items-center ml-4">
+        <img src={"klpt_logo.png"} alt="logo" className="rounded-full w-8" />
+        <span className="font-vinque font-bold text-3xl text-red-600 ml-2 pb-1">
+          Kratos
+        </span>
+      </div>
+      <nav className="nav-links text-lg font-bold">
         <NavLink to="/swap" className={setActiveClass}>
-          Swap
+          <span className="p-3 hover:bg-slate-800 hover:rounded-lg">Swap</span>
         </NavLink>
         <NavLink to="/pools" className={setActiveClass}>
-          Pool
+          <span className="p-3 hover:bg-slate-800 hover:rounded-lg">Pool</span>
         </NavLink>
         <NavLink to="/airdrop" className={setActiveClass}>
-          Airdrop
+          <span className="p-3 hover:bg-slate-800 hover:rounded-lg">
+            Airdrop
+          </span>
         </NavLink>
         <NavLink to="/farm" className={setActiveClass}>
-          Farm
+          <span className="p-3 hover:bg-slate-800 hover:rounded-lg">Farm</span>
         </NavLink>
-        {/* ... other links */}
       </nav>
-      <button className="connect-wallet-btn">Connect Wallet</button>
+      {/* <button className="connect-wallet-btn">Connect Wallet</button> */}
     </header>
   );
 };

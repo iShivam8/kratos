@@ -34,10 +34,7 @@ const Swap = () => {
             <div className="flex justify-between items-center">
               <h2 className="text-xl font-bold">Swap</h2>
               <div className="text-xs">
-                <span className="font-bold">Slippage: 4%</span>
-                <button className="ml-2 bg-yellow-500 text-gray-800 text-xs py-1 px-2 rounded">
-                  Edit
-                </button>
+                <span className="font-medium">Slippage: 4%</span>
               </div>
             </div>
           </div>

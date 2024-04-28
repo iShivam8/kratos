@@ -25,11 +25,6 @@
   transition: color 0.3s ease;
 }
 
-.nav-links a:hover,
-.nav-links .active {
-  color: #ffac41; /* Adjust the hover color to match your design */
-}
-
 .connect-wallet-btn {
   background-color: #ffac41; /* Adjust the color to match your design */
   color: #000000; /* Adjust the text color if needed */
