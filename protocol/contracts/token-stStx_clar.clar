@@ -9,9 +9,9 @@
 
 ;; Define constants for contract
 (define-constant CONTRACT_OWNER tx-sender)
-(define-constant TOKEN_URI u"KLPT is the Kratos Liquidity Provider Token for the DeFi dApp") ;; utf-8 string with token metadata host
-(define-constant TOKEN_NAME "Kratos Liquidity Provider Token")
-(define-constant TOKEN_SYMBOL "KLPT")
+(define-constant TOKEN_URI u"stSTX") ;; utf-8 string with token metadata host
+(define-constant TOKEN_NAME "Stacked STX Token")
+(define-constant TOKEN_SYMBOL "stSTX")
 (define-constant TOKEN_DECIMALS u6) ;; 6 units displayed past decimal, e.g. 1.000_000 = 1 token
 
 
