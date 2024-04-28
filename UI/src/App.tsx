@@ -8,7 +8,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/">
-          <Route index element={<Swap />} />
+          <Route path="" index element={<Swap />} />
+          <Route path="swap" element={<Swap />} />
           <Route path="pools" element={<Pools />} />
         </Route>
       </Routes>

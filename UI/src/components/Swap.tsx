@@ -7,25 +7,6 @@ import { useState } from "react";
 import background from "../img/kratosbgm.jpeg";
 
 const Swap = () => {
-  // const appRouter = createBrowserRouter([
-  //   {
-  //     path: "/",
-  //     element: <Swap />,
-  //   },
-  //   {
-  //     path: "/airdrop",
-  //     element: <Airdrop />,
-  //   },
-  //   {
-  //     path: "/pools",
-  //     element: <Pools />,
-  //   },
-  //   {
-  //     path: "/app",
-  //     element: <MobileApp />,
-  //   },
-  // ]);
-
   const [fromAmount, setFromAmount] = useState("");
   const [toAmount, setToAmount] = useState("");
 
