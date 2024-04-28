@@ -20,5 +20,11 @@
 
     ;; an optional URI that represents metadata of this token
     (get-token-uri () (response (optional (string-utf8 256)) uint))
+
+    ;; Mint - Used by Kratos DAO
+    (mint (uint principal) (response bool uint))
+
+    ;; Burn - Used by Kratos DAO
+    (burn (uint principal) (response bool uint))
   )
 )

@@ -48,22 +48,31 @@
     )
 )
 
+;; Burn method
 ;; #[allow(unchecked_data)]
-(define-public (burn (amount uint)
-    (owner principal)
-    (withdraw-txid (buff 32))
-    (burn-chain-height uint)
-    (merkle-proof (list 14 (buff 32)))
-    (tx-index uint)
-    (block-header (buff 80)))
-    (begin
-        (try! (is-contract-owner))
-        (asserts! (map-insert amounts-by-btc-tx withdraw-txid (* -1 (to-int amount))) err-btc-tx-already-used)
-        (try! (ft-burn? sbtc amount owner))
-        (print {notification: "burn", payload: withdraw-txid})
-    	(ok true)
-    )
+(define-public (burn (amount uint) (sender principal))
+  (begin
+    ;;(asserts! (is-eq contract-caller .kratos-governance) (err ERR_NOT_TOKEN_OWNER))
+    (ft-burn? sbtc amount sender)
+  )
 )
+
+;; #[allow(unchecked_data)]
+;;(define-public (burn (amount uint)
+  ;;  (owner principal)
+    ;;(withdraw-txid (buff 32))
+    ;;(burn-chain-height uint)
+    ;;(merkle-proof (list 14 (buff 32)))
+    ;;(tx-index uint)
+    ;;(block-header (buff 80)))
+    ;;(begin
+      ;;  (try! (is-contract-owner))
+        ;;(asserts! (map-insert amounts-by-btc-tx withdraw-txid (* -1 (to-int amount))) err-btc-tx-already-used)
+        ;;(try! (ft-burn? sbtc amount owner))
+        ;;(print {notification: "burn", payload: withdraw-txid})
+    	;;(ok true)
+    ;;)
+;;)
 
 ;; #[allow(unchecked_data)]
 (define-public (transfer (amount uint) (sender principal) (recipient principal) (memo (optional (buff 34))))

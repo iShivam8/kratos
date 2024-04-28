@@ -1,5 +1,5 @@
 (use-trait ft-trait .sip-010-trait-ft-standard.sip-010-trait)
-(use-trait swap-token .swap-trait.swap-trait)
+;;(use-trait swap-token .swap-trait.swap-trait)
 
 (define-constant transfer-x-failed-err (err u11))
 (define-constant transfer-y-failed-err (err u12))
@@ -176,7 +176,7 @@
 (define-public (create-pair
   (token-x-trait <ft-trait>)
   (token-y-trait <ft-trait>)
-  (swap-token-trait <swap-token>)
+  (swap-token-trait <ft-trait>)
   (pair-name (string-ascii 32))
   (x uint)
   (y uint)
@@ -225,7 +225,7 @@
 ;; @param x; amount to add to first token of pair
 ;; @param y; amount to add to second token of pair, only used when pair is created
 ;; @post boolean; returns true if liquidity added
-(define-public (add-to-liquidity (token-x-trait <ft-trait>) (token-y-trait <ft-trait>) (swap-token-trait <swap-token>) (x uint) (y uint))
+(define-public (add-to-liquidity (token-x-trait <ft-trait>) (token-y-trait <ft-trait>) (swap-token-trait <ft-trait>) (x uint) (y uint))
   (let
     (
       (token-x (contract-of token-x-trait))
@@ -255,14 +255,6 @@
       }))
     )
 
-    ;; Mining the Liquid Pool token for the Liquidity Providers
-    (if (is-eq token-x .sbtc)
-      (begin
-        (try! (contract-call? .token-klpt mint-for-dao u1 tx-sender))
-      )
-      false
-    )
-
     (asserts! (and (> x u0) (> new-y u0)) (err ERR-INVALID-LIQUIDITY))
     (asserts! (is-eq token (contract-of swap-token-trait)) (err ERR-WRONG-SWAP-TOKEN))
 
@@ -271,7 +263,7 @@
 
     (map-set pairs-data-map { token-x: token-x, token-y: token-y } pair-updated)
 
-    (try! (contract-call? swap-token-trait mint recipient-address new-shares))
+    (try! (contract-call? .token-klpt mint new-shares recipient-address))
     
     (print { object: "pair", action: "liquidity-added", data: pair-updated })
     (ok true)

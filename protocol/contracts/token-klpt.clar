@@ -1,6 +1,6 @@
 ;; This contract implements the SIP-010 community-standard Fungible Token trait.
 (impl-trait .sip-010-trait-ft-standard.sip-010-trait)
-(impl-trait .kratos-governance-token-trait.governance-token-trait)
+;;(impl-trait .kratos-governance-token-trait.governance-token-trait)
 
 ;; Define the FT, with no maximum supply
 (define-fungible-token kratos-liquidity-provider-token)
@@ -78,15 +78,15 @@
 ;; ######################################
 
 ;; Mint method for Kratos DAO
-(define-public (mint-for-dao (amount uint) (recipient principal))
-  (begin
+;;(define-public (mint (amount uint) (recipient principal))
+  ;;(begin
     ;;(asserts! (is-eq contract-caller .kratos-governance) (err ERR_NOT_TOKEN_OWNER))
-    (ft-mint? kratos-liquidity-provider-token amount recipient)
-  )
-)
+    ;;(ft-mint? kratos-liquidity-provider-token amount recipient)
+  ;;)
+;;)
 
 ;; Burn method for Kratos DAO
-(define-public (burn-for-dao (amount uint) (sender principal))
+(define-public (burn (amount uint) (sender principal))
   (begin
     ;;(asserts! (is-eq contract-caller .kratos-governance) (err ERR_NOT_TOKEN_OWNER))
     (ft-burn? kratos-liquidity-provider-token amount sender)

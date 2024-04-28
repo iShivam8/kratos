@@ -24,10 +24,10 @@
     ;; Additional functions ;;
 
     ;; Mint function only kratos swap contract can call
-    (mint (principal uint) (response bool uint))
+    (mint (uint principal) (response bool uint))
 
     ;; Burn function only kratos swap contract can call
-    (burn (principal uint) (response bool uint))
+    (burn (uint principal) (response bool uint))
 
     ;; Keep the data as per principal
     (get-data (principal) (response {
