@@ -3,9 +3,10 @@
 (define-constant ERR-SWAP-ONE-FAILED u1001)
 (define-constant ERR-SWAP-TWO-FAILED u1002)
 
-;; Swap X for Z with token Y in between
+;; Internal DEX Engine - Swap X for Z with token Y in between
 ;; For instance, if we want to swap KLPT to gKRT but there is no KLPT/gKRT pair
 ;; We swap KLPT to USDA and USDA to gKRT
+;; This is also essential to lower the slippage fee
 (define-public (swap-x-for-z
   (token-x-trait <ft-trait>)
   (token-y-trait <ft-trait>)

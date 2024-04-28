@@ -254,6 +254,15 @@
         balance-y: (+ balance-y new-y)
       }))
     )
+
+    ;; Mining the Liquid Pool token for the Liquidity Providers
+    (if (is-eq token-x .sbtc)
+      (begin
+        (try! (contract-call? .token-klpt mint-for-dao u1 tx-sender))
+      )
+      false
+    )
+
     (asserts! (and (> x u0) (> new-y u0)) (err ERR-INVALID-LIQUIDITY))
     (asserts! (is-eq token (contract-of swap-token-trait)) (err ERR-WRONG-SWAP-TOKEN))
 
