@@ -41,10 +41,10 @@ path = 'contracts/token-klpt.clar'
 clarity_version = 2
 epoch = 2.4
 
-[repl]
-clarity_wasm_mode = false
-show_timings = false
-
+[contracts.token-stStx_clar]
+path = 'contracts/token-stStx_clar.clar'
+clarity_version = 2
+epoch = 2.5
 [repl.analysis]
 passes = ['check_checker']
 
