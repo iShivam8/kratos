@@ -73,18 +73,6 @@
   )
 )
 
-;; ######################################
-;; Kratos Governance DAO token trait impl
-;; ######################################
-
-;; Mint method for Kratos DAO
-;;(define-public (mint (amount uint) (recipient principal))
-  ;;(begin
-    ;;(asserts! (is-eq contract-caller .kratos-governance) (err ERR_NOT_TOKEN_OWNER))
-    ;;(ft-mint? kratos-liquidity-provider-token amount recipient)
-  ;;)
-;;)
-
 ;; Burn method for Kratos DAO
 (define-public (burn (amount uint) (sender principal))
   (begin
