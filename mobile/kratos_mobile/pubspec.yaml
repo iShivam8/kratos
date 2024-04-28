@@ -61,6 +61,46 @@ flutter:
 
   assets:
     - assets/
+  
+  fonts:
+    - family: Raleway
+      fonts:
+        - asset: assets/fonts/Raleway-Regular.ttf
+          style: normal
+          weight: 400
+        - asset: assets/fonts/Raleway-Italic.ttf
+          style: italic
+          weight: 400
+        - asset: assets/fonts/Raleway-Bold.ttf
+          style: normal
+          weight: 700
+        - asset: assets/fonts/Raleway-BoldItalic.ttf
+          style: italic
+          weight: 700
+        - asset: assets/fonts/Raleway-Light.ttf
+          style: normal
+          weight: 300
+        - asset: assets/fonts/Raleway-LightItalic.ttf
+          style: italic
+          weight: 300
+        - asset: assets/fonts/Raleway-SemiBold.ttf
+          style: normal
+          weight: 600
+        - asset: assets/fonts/Raleway-SemiBoldItalic.ttf
+          style: italic
+          weight: 600
+        - asset: assets/fonts/Raleway-ExtraBold.ttf
+          style: normal
+          weight: 800
+        - asset: assets/fonts/Raleway-ExtraBoldItalic.ttf
+          style: italic
+          weight: 800
+        - asset: assets/fonts/Raleway-Thin.ttf
+          style: normal
+          weight: 100
+        - asset: assets/fonts/Raleway-ThinItalic.ttf
+          style: italic
+          weight: 100
 
   # To add assets to your application, add an assets section, like this:
   # assets:

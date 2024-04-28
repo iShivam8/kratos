@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
           selectedLabelStyle: TextStyle(color: Colors.white),
           unselectedLabelStyle: TextStyle(color: Colors.white),
         ),
+        fontFamily: 'Raleway',
       ),
       home: const MyHomePage(),
     );
@@ -125,7 +126,12 @@ class MyHomePage extends HookConsumerWidget {
               ],
             ),
           ),
-          child: const SwapBox(),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SwapBox(),
+            ],
+          ),
         ),
         Container(
           height: 100,
