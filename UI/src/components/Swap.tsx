@@ -3,7 +3,7 @@ import Airdrop from "./Airdrop";
 import Pools from "./Airdrop";
 import MobileApp from "./MobileApp";
 import Navigation from "./Navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import background from "../img/kratosbgm.jpeg";
 import { TokenModal } from "./TokenModal";
 import ConnectWallet from "./ConnectWallet";
@@ -16,6 +16,10 @@ const Swap = () => {
   const [toToken, setToToken] = useState("sBTC");
   const [fromTokenModal, setFromTokenModal] = useState(false);
   const [toTokenModal, setToTokenModal] = useState(false);
+
+  useEffect(() => {
+    setToAmount(fromAmount);
+  }, [fromAmount]);
 
   return (
     <>
@@ -92,7 +96,6 @@ const Swap = () => {
                 type="text"
                 id="to"
                 value={toAmount}
-                onChange={(e) => setToAmount(e.target.value)}
                 placeholder="0.00"
                 className="text-white bg-transparent flex-1 py-2 px-3 focus:outline-none font-bold"
               />
