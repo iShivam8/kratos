@@ -34,7 +34,9 @@ const Swap = () => {
             <div className="flex justify-between items-center">
               <h2 className="text-xl font-bold">Swap</h2>
               <div className="text-xs">
-                <span className="font-medium">Slippage: 4%</span>
+                <span className="font-semibold text-gray-400">
+                  Slippage: 4%
+                </span>
               </div>
             </div>
           </div>
@@ -75,7 +77,7 @@ const Swap = () => {
               To
             </label>
             <div className="flex items-center border border-gray-600 rounded cursor-pointer">
-              <div className="bg-yellow-500 px-3 py-2 rounded-l text-gray-800 hover:bg-yellow-300">
+              <div className="bg-red-600 px-3 py-2 rounded-l text-teal-50 hover:bg-red-400">
                 <span
                   className="font-bold"
                   onClick={() => {
