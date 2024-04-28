@@ -3,7 +3,7 @@ import Airdrop from "./Airdrop";
 import Pools from "./Airdrop";
 import MobileApp from "./MobileApp";
 import Navigation from "./Navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import background from "../img/kratosbgm.jpeg";
 import ConnectWallet from "./ConnectWallet";
 import { ExecuteContract } from "./ExecuteContractService";
@@ -11,7 +11,15 @@ import { ExecuteContract } from "./ExecuteContractService";
 const Pool1 = () => {
   const [fromAmount, setFromAmount] = useState("");
   const [toAmount, setToAmount] = useState("");
+  const [fromToken, setFromToken] = useState("BTC");
+  const [toToken, setToToken] = useState("sBTC");
   const [isConfirmClicked, setConfirmClicked] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setConfirmClicked(false);
+    }, 10000);
+  }, [isConfirmClicked]);
 
   return (
     <>
@@ -30,23 +38,22 @@ const Pool1 = () => {
             <div className="flex justify-between items-center">
               <h2 className="text-xl font-bold">Add Liquidity</h2>
               <div className="text-xs">
-                <span>Slippage: 4%</span>
-                <button className="ml-2 bg-yellow-500 text-gray-800 text-xs py-1 px-2 rounded">
-                  Edit
-                </button>
+                <span className="font-semibold text-gray-400">
+                  Slippage: 4%
+                </span>
               </div>
             </div>
           </div>
           <div className="mb-5">
             <label
-              htmlFor="from"
+              htmlFor="token1"
               className="block text-sm text-gray-300 mb-2 font-bold"
             >
               Token 1
             </label>
-            <div className="flex items-center border border-gray-600 rounded">
-              <div className="bg-blue-600 px-3 py-2 rounded-l text-white text-sm">
-                BTC
+            <div className="flex items-center border border-gray-600 rounded cursor-pointer">
+              <div className="bg-blue-600 px-3 py-2 rounded-l text-white hover:bg-blue-400">
+                <span className="font-bold">{fromToken}</span>
               </div>
               <input
                 type="text"
@@ -54,20 +61,20 @@ const Pool1 = () => {
                 value={fromAmount}
                 onChange={(e) => setFromAmount(e.target.value)}
                 placeholder="0.00"
-                className="text-white bg-transparent flex-1 py-2 px-3 focus:outline-none"
+                className="text-white bg-transparent flex-1 py-2 px-3 focus:outline-none font-bold"
               />
             </div>
           </div>
           <div className="mb-5">
             <label
-              htmlFor="to"
+              htmlFor="token2"
               className="block text-sm text-gray-300 mb-2 font-bold"
             >
               Token 2
             </label>
-            <div className="flex items-center border border-gray-600 rounded">
-              <div className="bg-yellow-500 px-3 py-2 rounded-l text-gray-800 text-sm">
-                sBTC
+            <div className="flex items-center border border-gray-600 rounded cursor-pointer">
+              <div className="bg-red-600 px-3 py-2 rounded-l text-teal-50 hover:bg-red-400">
+                <span className="font-bold">{toToken}</span>
               </div>
               <input
                 type="text"
@@ -75,25 +82,28 @@ const Pool1 = () => {
                 value={toAmount}
                 onChange={(e) => setToAmount(e.target.value)}
                 placeholder="0.00"
-                className="text-white bg-transparent flex-1 py-2 px-3 focus:outline-none"
+                className="text-white bg-transparent flex-1 py-2 px-3 focus:outline-none font-bold"
               />
             </div>
           </div>
           {isConfirmClicked ? (
-            <button className="w-full bg-green-500 text-black font-bold py-3 rounded mb-3 hover:bg-yellow-600 transition-colors">
+            <button
+              onClick={() => setConfirmClicked(false)}
+              className="w-full justify-items-center bg-gradient-to-br from-blue-600 to-blue-800 text-teal-50 font-bold py-3 rounded mb-3 hover:bg-red-400 transition-colors"
+            >
               Added ✓
             </button>
           ) : (
             <button
-              className="w-full bg-green-500 text-black font-bold py-3 rounded mb-3 hover:bg-yellow-600 transition-colors"
+              className="w-full bg-gradient-to-br from-red-600 to-red-800 text-teal-50 font-bold py-3 rounded mb-3 hover:bg-red-400 transition-colors"
               onClick={() => setConfirmClicked(true)}
             >
               <span onClick={ExecuteContract}>Confirm (Call my contract)</span>
             </button>
           )}
           <ConnectWallet />
-          <div className="text-gray-400 text-xs text-center">
-            1 VELAR ≈ 0.0734580000 STX
+          <div className="text-gray-400 text-sm font-bold text-end">
+            1 KLPT ≈ 0.0734580000 STX
           </div>
         </div>
       </div>

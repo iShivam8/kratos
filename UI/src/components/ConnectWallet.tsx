@@ -29,7 +29,9 @@ const ConnectWallet = () => {
       <div>
         <button
           className="w-full bg-gradient-to-br from-red-600 to-red-800 text-teal-50 font-bold py-3 rounded mb-5 hover:bg-red-400 transition-colors"
-          onClick={disconnect}
+          onClick={() => {
+            disconnect();
+          }}
         >
           Disconnect Wallet
         </button>
