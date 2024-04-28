@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Pools from "./components/Pools";
 import Pool1 from "./components/Pool-BTC-SBTC";
 import Pool2 from "./components/Pool-STX-SBTC";
+import Governance from "./components/Governance";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
           <Route path="pools" element={<Pools />} />
           <Route path="1" element={<Pool1 />} />
           <Route path="2" element={<Pool2 />} />
-          <Route path="governance" element={<Pools />} />
+          <Route path="governance" element={<Governance />} />
           <Route path="app" element={<Pools />} />
         </Route>
       </Routes>

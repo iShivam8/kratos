@@ -8,11 +8,11 @@ import background from "../img/kratosbgm.jpeg";
 import ConnectWallet from "./ConnectWallet";
 import { ExecuteContract } from "./ExecuteContractService";
 
-const Pool1 = () => {
+const Governance = () => {
   const [fromAmount, setFromAmount] = useState("");
   const [toAmount, setToAmount] = useState("");
-  const [fromToken, setFromToken] = useState("BTC");
-  const [toToken, setToToken] = useState("sBTC");
+  const [fromToken, setFromToken] = useState("KLPT");
+  const [toToken, setToToken] = useState("GKRT");
   const [isConfirmClicked, setConfirmClicked] = useState(false);
 
   useEffect(() => {
@@ -112,4 +112,4 @@ const Pool1 = () => {
   );
 };
 
-export default Pool1;
+export default Governance;

@@ -28,8 +28,10 @@ const Navigation = () => {
             Airdrop
           </span>
         </NavLink>
-        <NavLink to="/farm" className={setActiveClass}>
-          <span className="p-3 hover:bg-slate-800 hover:rounded-lg">Farm</span>
+        <NavLink to="/governance" className={setActiveClass}>
+          <span className="p-3 hover:bg-slate-800 hover:rounded-lg">
+            Governance
+          </span>
         </NavLink>
       </nav>
       {/* <button className="connect-wallet-btn">Connect Wallet</button> */}
