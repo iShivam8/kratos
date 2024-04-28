@@ -6,30 +6,30 @@ import Airdrop from "./Airdrop";
 import Pools from "./Airdrop";
 import MobileApp from "./MobileApp";
 import Navigation from "./Navigation";
-import { BrowserRouter as Router } from "react-router-dom";
+// import { BrowserRouter as Router } from "react-router-dom";
 
 const Swap = () => {
-  const appRouter = createBrowserRouter([
-    {
-      path: "/",
-      element: <Swap />,
-    },
-    {
-      path: "/airdrop",
-      element: <Airdrop />,
-    },
-    {
-      path: "/pools",
-      element: <Pools />,
-    },
-    {
-      path: "/app",
-      element: <MobileApp />,
-    },
-  ]);
+  // const appRouter = createBrowserRouter([
+  //   {
+  //     path: "/",
+  //     element: <Swap />,
+  //   },
+  //   {
+  //     path: "/airdrop",
+  //     element: <Airdrop />,
+  //   },
+  //   {
+  //     path: "/pools",
+  //     element: <Pools />,
+  //   },
+  //   {
+  //     path: "/app",
+  //     element: <MobileApp />,
+  //   },
+  // ]);
 
   return (
-    <Router>
+    <>
       <Navigation />
       <div className="swap-container">
         <div className="swap-header">
@@ -67,7 +67,7 @@ const Swap = () => {
           <div className="rate-info">1 VELAR ≈ 0.0733670000 STX</div>
         </div>
       </div>
-    </Router>
+    </>
   );
 };
 
